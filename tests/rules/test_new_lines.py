@@ -40,6 +40,7 @@ class NewLinesTestCase(RuleTestCase):
         self.check('\r\n', conf, problem=(1, 1))
         self.check('---\ntext\n', conf)
         self.check('---\r\ntext\r\n', conf, problem=(1, 4))
+        self.check('---\ntext\r', conf, problem=(2, 5))
 
     def test_unix_type_required_st_sp(self):
         # If we find a CRLF when looking for Unix newlines, yamllint
