@@ -51,7 +51,7 @@ def check(conf, line):
     elif conf['type'] == 'dos':
         newline_char = '\r\n'
 
-    if len(line.buffer) > line.end:
+    if len(line.buffer) > line.end - line.start:
         if line.buffer[line.end:line.end + len(newline_char)] != newline_char:
             c = repr(newline_char).strip('\'')
             yield LintProblem(line.line_no, line.end - line.start + 1,
